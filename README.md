@@ -15,7 +15,7 @@ Application Web Client ultra-rapide développée avec **Next.js (App Router)**, 
 # Installation des dépendances
 npm install
 
-# Lancement en mode développement (Port 3000)
+# Lancement en mode développement (Port 3001)
 npm run dev
 
 # Build de production
