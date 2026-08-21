@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { CheckCircle, PhoneCall, Package, Home, ArrowRight } from "lucide-react";
+import { CheckCircle, Package, Home } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 
-export default function ThankYouPage() {
+function ThankYouContent() {
   const searchParams = useSearchParams();
   const orderNumber = searchParams.get("orderNumber") || "DAP-REF-EXPRESS";
   const [order, setOrder] = useState<any>(null);
@@ -107,5 +107,13 @@ export default function ThankYouPage() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function ThankYouPage() {
+  return (
+    <Suspense fallback={<div className="max-w-2xl mx-auto px-4 py-16 text-center text-gray-500">Chargement...</div>}>
+      <ThankYouContent />
+    </Suspense>
   );
 }
